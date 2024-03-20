@@ -8,7 +8,7 @@
 
 **Intro**
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+This project is made so all the elements are displayed correctly on popular screen sizes. This project mainly uses grid displays to achieve this.
 
 **Figma**
 
@@ -16,11 +16,15 @@ This project is made so all the elements are displayed correctly on popular scre
 
 **Images**
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
-
-Good luck and have fun!
+![Webpage on desktop](./images/Screenshotdesktop.png)
 
 \*\*
 Video link: https://youtu.be/IFGcVYaiJ9s
 
 Github repo link: https://omegax117.github.io/se_project_aroundtheus/index.html
+
+**Improvements**
+
+Add functionality to like buttons. Add a pop up menu to add more images. Allow the edit button to change the profile picture
+
+Better functionality on tablet displays
