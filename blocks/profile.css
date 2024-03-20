@@ -58,3 +58,23 @@
   grid-area: description;
   margin: 0;
 }
+@media screen and (max-width: 480px) {
+  .profile {
+    flex-direction: column;
+  }
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .profile__description {
+    width: 100%;
+    text-align: center;
+  }
+  .profile__add-button {
+    margin: 20px 0 0;
+    width: 100%;
+    max-width: 282px;
+  }
+}
