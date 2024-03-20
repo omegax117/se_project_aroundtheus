@@ -1,0 +1,60 @@
+.profile {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+}
+.profile__image {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-position: center;
+  margin: 0 24px 0 0;
+}
+.profile__info {
+  display: grid;
+  grid-template-areas: "title button" "description description";
+  grid-template-columns: minmax(auto, 400px) auto;
+}
+.profile__edit-button {
+  background: transparent url(../images/edit.svg) center no-repeat;
+  height: 24px;
+  width: 24px;
+  grid-area: button;
+  padding: 0;
+  margin: auto 0;
+  border-color: white;
+  border-width: 1px;
+  transition: 0.6s ease-in-out;
+}
+.profile__edit-button:hover {
+  opacity: 60%;
+}
+.profile__add-button {
+  background: transparent url(../images/add.svg) center no-repeat;
+  height: 50px;
+  width: 150px;
+  margin-left: auto;
+  border-color: white;
+  border-width: 2px;
+  transition: 0.6s ease-in-out;
+}
+.profile__add-button:hover {
+  opacity: 60%;
+}
+.profile__title {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 500;
+  grid-area: title;
+  margin: 0;
+}
+.profile__description {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  grid-area: description;
+  margin: 0;
+}
