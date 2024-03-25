@@ -1,52 +1,11 @@
 .cards {
   margin-top: 35px;
 }
-.card__list {
+.cards__list {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
   grid-gap: 20px 17px;
   padding: 0;
   margin: 0;
-}
-.card {
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-.card__image {
-  width: 282px;
-  height: 282px;
-  border-radius: 10px 10px 0 0;
-}
-.card__description {
-  background: white;
-  color: black;
-  padding: 25px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 0 0 10px 10px;
-}
-.card__description-text {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 219px;
-  margin: 0;
-  font-family: Inter, Arial, sans-serif;
-  font-weight: 900;
-  line-height: 29.05px;
-}
-.card__like-button {
-  background: transparent url(../images/like-inactive.svg) center no-repeat;
-  height: 18px;
-  width: 21px;
-  border: none;
-  transition: 0.6s;
-}
-.card__like-button:hover {
-  opacity: 60%;
 }

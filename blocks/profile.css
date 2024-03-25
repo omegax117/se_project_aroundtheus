@@ -26,6 +26,7 @@
   border-color: white;
   border-width: 1px;
   transition: 0.6s ease-in-out;
+  cursor: pointer;
 }
 .profile__edit-button:hover {
   opacity: 60%;
@@ -35,9 +36,10 @@
   height: 50px;
   width: 150px;
   margin-left: auto;
-  border-color: white;
-  border-width: 2px;
+  border: 2px solid white;
+  border-radius: 2px;
   transition: 0.6s ease-in-out;
+  cursor: pointer;
 }
 .profile__add-button:hover {
   opacity: 60%;
@@ -49,6 +51,9 @@
   font-weight: 500;
   grid-area: title;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .profile__description {
   font-family: Inter, Arial, sans-serif;
@@ -57,10 +62,17 @@
   font-weight: 400;
   grid-area: description;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
-@media screen and (max-width: 480px) {
+
+@media screen and (max-width: 920px) {
   .profile {
     flex-direction: column;
+  }
+  .profile__image {
+    margin: 24px 0 0;
   }
   .profile__info {
     display: flex;
@@ -71,6 +83,52 @@
   .profile__description {
     width: 100%;
     text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .profile__edit-button {
+    height: 18px;
+    width: 18px;
+    margin-left: 10px;
+  }
+  .profile__add-button {
+    margin: 20px 0 0;
+    width: 100%;
+    max-width: 282px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile {
+    flex-direction: column;
+  }
+  .profile__image {
+    margin-bottom: 30px;
+  }
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .profile__title {
+    text-align: center;
+    font-size: 22px;
+    line-height: 26.63px;
+  }
+  .profile__description {
+    width: 100%;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 16.94px;
+  }
+  .profile__edit-button {
+    height: 18px;
+    width: 18px;
   }
   .profile__add-button {
     margin: 20px 0 0;
