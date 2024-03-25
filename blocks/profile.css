@@ -104,7 +104,7 @@
     flex-direction: column;
   }
   .profile__image {
-    margin-bottom: 30px;
+    margin: 0 0 30px;
   }
   .profile__info {
     display: flex;
@@ -131,7 +131,7 @@
     width: 18px;
   }
   .profile__add-button {
-    margin: 20px 0 0;
+    margin: 36px 0 0;
     width: 100%;
     max-width: 282px;
   }
