@@ -28,14 +28,14 @@ const initialCards = [
 console.log(initialCards);
 
 const profileEditBtn = document.querySelector(".profile__edit-button");
-const profileEditCloseBtn = document.querySelector(".modal__close_button");
+const profileEditCloseBtn = document.querySelector(".modal__close-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 
 profileEditBtn.addEventListener("click", () => {
-  profileEditModal.classList.remove("modal__close");
+  profileEditModal.classList.add("modal__open");
   console.log("PUSHED");
 });
 
 profileEditCloseBtn.addEventListener("click", () => {
-  profileEditModal.classList.add("modal__close");
+  profileEditModal.classList.remove("modal__open");
 });
