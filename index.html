@@ -31,7 +31,7 @@
         </section>
         <section class="cards page__section">
           <ul class="cards__list">
-            <li class="card">
+            <!-- <li class="card">
               <img
                 class="card__image"
                 src="./images/yosemite-valley.jpg"
@@ -97,7 +97,7 @@
                 <h2 class="card__description-text">Lake Louise</h2>
                 <button type="button" class="card__like-button"></button>
               </div>
-            </li>
+            </li> -->
           </ul>
         </section>
       </main>
@@ -117,7 +117,15 @@
         </form>
       </div>
     </div>
-
+    <template id="jscard-template">
+      <li class="card">
+        <img class="card__image" src="" alt="" />
+        <div class="card__description">
+          <h2 class="card__description-text"></h2>
+          <button type="button" class="card__like-button"></button>
+        </div>
+      </li>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

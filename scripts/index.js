@@ -25,17 +25,54 @@ const initialCards = [
   },
 ];
 
-console.log(initialCards);
-
+//Elements
 const profileEditBtn = document.querySelector(".profile__edit-button");
 const profileEditCloseBtn = document.querySelector(".modal__close-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
+const profileSave = document.querySelector(".modal__form");
+const profileName = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+const profileNameInput = document.querySelector(".modal__title");
+const profileDescriptionInput = document.querySelector(".modal__description");
+const cardListEl = document.querySelector(".cards__list");
+const cardTemplate =
+  document.querySelector("#jscard-template").content.firstElementChild;
 
+//functions
+function closePopUp() {
+  profileEditModal.classList.remove("modal__open");
+}
+
+function getCardElement(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageEl = cardElement.querySelector(".card__image");
+  const cardTitleEl = cardElement.querySelector(".card__description-text");
+  cardImageEl.src = cardData.link;
+  cardTitleEl.textContent = cardData.name;
+  cardImageEl.alt = cardData.name;
+  return cardElement;
+}
+
+// Event Listeners
 profileEditBtn.addEventListener("click", () => {
+  profileNameInput.value = profileName.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("modal__open");
-  console.log("PUSHED");
 });
 
 profileEditCloseBtn.addEventListener("click", () => {
-  profileEditModal.classList.remove("modal__open");
+  closePopUp();
+});
+
+//Handler
+profileSave.addEventListener("submit", (event) => {
+  profileName.textContent = profileNameInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  event.preventDefault();
+  closePopUp();
+});
+
+initialCards.forEach((cardData) => {
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
 });
