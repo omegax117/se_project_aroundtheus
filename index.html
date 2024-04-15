@@ -24,10 +24,18 @@
           />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
-            <button type="button" class="profile__edit-button"></button>
+            <button
+              type="button"
+              class="profile__edit-button"
+              aria-label="Profile editor"
+            ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button type="button" class="profile__add-button"></button>
+          <button
+            type="button"
+            class="profile__add-button"
+            aria-label="Add image button"
+          ></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list">
@@ -108,12 +116,30 @@
 
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close-button"></button>
-        <p class="modal__heading">Edit profile</p>
+        <button
+          type="button"
+          class="modal__close-button"
+          aria-label="Close editor button"
+        ></button>
+        <h2 class="modal__heading">Edit profile</h2>
         <form class="modal__form">
-          <input type="text" value="Jacques Cousteau" class="modal__title" />
-          <input type="text" value="Explorer" class="modal__description" />
-          <button class="modal__save-button">Save</button>
+          <input
+            type="text"
+            value="Jacques Cousteau"
+            class="modal__input_title_text"
+          />
+          <input
+            type="text"
+            value="Explorer"
+            class="modal__input_description_text"
+          />
+          <button
+            type="submit"
+            class="modal__save-button"
+            aria-label="Save changes button"
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -122,7 +148,11 @@
         <img class="card__image" src="" alt="" />
         <div class="card__description">
           <h2 class="card__description-text"></h2>
-          <button type="button" class="card__like-button"></button>
+          <button
+            type="button"
+            class="card__like-button"
+            aria-label="Like image button"
+          ></button>
         </div>
       </li>
     </template>
