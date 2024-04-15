@@ -32,9 +32,9 @@ const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileSave = document.querySelector(".modal__form");
 const profileName = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
-const profileNameInput = document.querySelector(".modal__input_title_text");
+const profileNameInput = document.querySelector(".modal__input_type_title");
 const profileDescriptionInput = document.querySelector(
-  ".modal__input_description_text"
+  ".modal__input_type_description"
 );
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
