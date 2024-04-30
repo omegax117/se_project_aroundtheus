@@ -114,6 +114,18 @@
       </footer>
     </div>
 
+    <div class="preview__modal" id="preview">
+      <div class="preview__container">
+        <button
+          type="button"
+          class="preview__close-button"
+          aria-label="Close preview button"
+        ></button>
+        <img src="" alt="" class="preview__image" />
+        <p class="preview__title"></p>
+      </div>
+    </div>
+
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button
@@ -143,8 +155,44 @@
         </form>
       </div>
     </div>
+
+    <div class="newcards" id="newcards">
+      <div class="newcards__container">
+        <button
+          type="button"
+          class="newcards__close-button"
+          aria-label="Close new card button"
+        ></button>
+        <h2 class="newcards__heading">New Place</h2>
+        <form class="newcards__form">
+          <input
+            type="text"
+            value="Title"
+            class="newcards__input newcards__input_type_title"
+          />
+          <input
+            type="text"
+            value="Image URL"
+            class="newcards__input newcards__input_type_link"
+          />
+          <button
+            type="submit"
+            class="newcards__save-button"
+            aria-label="Save changes button"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
     <template id="jscard-template">
       <li class="card">
+        <button
+          type="button"
+          class="card__delete-button"
+          aria-label="delete card button"
+        ></button>
         <img class="card__image" src="" alt="" />
         <div class="card__description">
           <h2 class="card__description-text"></h2>

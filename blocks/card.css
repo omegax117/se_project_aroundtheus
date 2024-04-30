@@ -4,12 +4,19 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
+  position: relative;
 }
 .card__image {
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0 0;
+  transition: 0.5s;
 }
+
+.card__image:hover {
+  opacity: 60%;
+}
+
 .card__description {
   background: white;
   color: black;
@@ -39,5 +46,26 @@
   cursor: pointer;
 }
 .card__like-button:hover {
+  opacity: 50%;
+}
+
+.card__like-button_active {
+  background-image: url(../images/Union.svg);
+}
+
+.card__delete-button {
+  background: transparent url(../images/trash.svg) center no-repeat;
+  height: 19.3px;
+  width: 18px;
+  cursor: pointer;
+  transition: 0.6s;
+  border: none;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  z-index: 2;
+}
+
+.card__delete-button:hover {
   opacity: 50%;
 }
