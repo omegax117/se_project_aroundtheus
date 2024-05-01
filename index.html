@@ -38,75 +38,7 @@
           ></button>
         </section>
         <section class="cards page__section">
-          <ul class="cards__list">
-            <!-- <li class="card">
-              <img
-                class="card__image"
-                src="./images/yosemite-valley.jpg"
-                alt="A river running
-              through a forest with a mountain peak in the background"
-              />
-              <div class="card__description">
-                <h2 class="card__description-text">Yosemite Valley</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/lake-louise.png"
-                alt="A blue lake with two mountain peaks in the background"
-              />
-              <div class="card__description">
-                <h2 class="card__description-text">Lake Louise</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/bald-mountains.png"
-                alt="A red sky with a sunset peaking over the mountain ranges"
-              />
-              <div class="card__description">
-                <h2 class="card__description-text">Bald Mountains</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/latemar.png"
-                alt="A nightime starry sky with mountain peaks dusted with snow"
-              />
-              <div class="card__description">
-                <h2 class="card__description-text">Latemar</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/vanoise-national-park.png"
-                alt="A lake with a mountain peak reflected off the surface off of it"
-              />
-              <div class="card__description">
-                <h2 class="card__description-text">Vanoise National Park</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/lago-di-braies.png"
-                alt="Some boats tied to a dock on a lake with tall mountain ranges in the background"
-              />
-              <div class="card__description">
-                <h2 class="card__description-text">Lake Louise</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li> -->
-          </ul>
+          <ul class="cards__list"></ul>
         </section>
       </main>
       <footer class="footer page__section">
@@ -114,11 +46,11 @@
       </footer>
     </div>
 
-    <div class="preview__modal" id="preview">
+    <div class="modal" id="preview">
       <div class="preview__container">
         <button
           type="button"
-          class="preview__close-button"
+          class="modal__close-button"
           aria-label="Close preview button"
         ></button>
         <img src="" alt="" class="preview__image" />
@@ -137,12 +69,12 @@
         <form class="modal__form">
           <input
             type="text"
-            value="Jacques Cousteau"
+            value="placeholder"
             class="modal__input modal__input_type_title"
           />
           <input
             type="text"
-            value="Explorer"
+            value="placeholder"
             class="modal__input modal__input_type_description"
           />
           <button
@@ -156,23 +88,23 @@
       </div>
     </div>
 
-    <div class="newcards" id="newcards">
+    <div class="modal" id="newcards">
       <div class="newcards__container">
         <button
           type="button"
-          class="newcards__close-button"
+          class="modal__close-button"
           aria-label="Close new card button"
         ></button>
         <h2 class="newcards__heading">New Place</h2>
         <form class="newcards__form">
           <input
             type="text"
-            value="Title"
+            placeholder="Title"
             class="newcards__input newcards__input_type_title"
           />
           <input
             type="text"
-            value="Image URL"
+            placeholder="Image URL"
             class="newcards__input newcards__input_type_link"
           />
           <button

@@ -14,14 +14,6 @@
   z-index: -1;
 }
 
-.preview__modal_open {
-  z-index: 999;
-  display: flex;
-  visibility: visible;
-  opacity: 1;
-  transition: visibility 0s, opacity 0.5s linear;
-}
-
 .preview__container {
   background-color: transparent;
   border-radius: 10px;

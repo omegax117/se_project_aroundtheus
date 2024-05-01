@@ -11,14 +11,7 @@
   opacity: 0;
   transition: z-index 0.5s, visibility 0s 0.5s, opacity 0.5s linear;
   z-index: -1;
-}
-
-.newcards_open {
-  z-index: 999;
-  display: flex;
-  visibility: visible;
-  opacity: 1;
-  transition: visibility 0s 0.5s, opacity 0.5s linear;
+  visibility: hidden;
 }
 
 .newcards__container {
