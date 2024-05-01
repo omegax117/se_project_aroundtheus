@@ -114,7 +114,7 @@ profileForm.addEventListener("submit", (event) => {
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   event.preventDefault();
-  closePopUp();
+  closePopUp(profileEditModal);
 });
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
