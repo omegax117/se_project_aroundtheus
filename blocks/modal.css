@@ -31,7 +31,7 @@
   max-width: 430px;
   min-height: 330px;
 }
-.modal__container_preview {
+.modal__container-preview {
   background-color: transparent;
   border-radius: 10px;
   position: relative;
@@ -89,7 +89,7 @@
   margin: 34px auto 52px 36px;
 }
 
-.modal__title_preview {
+.modal__title-preview {
   font-family: Inter, Arial, sans-serif;
   font-size: 12px;
   font-weight: 400;
