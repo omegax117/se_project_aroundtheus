@@ -153,7 +153,7 @@
 
 @media screen and (max-width: 580px) {
   .modal__close-button {
-    top: -60px;
+    top: -40px;
     right: 5px;
     height: 26px;
     width: 26px;
@@ -178,7 +178,21 @@
     margin: 0 22px 30px;
   }
 
+  .modal__input_type_name {
+    max-width: 238px;
+    font-size: 14px;
+    line-height: 16.94px;
+    margin: 0 22px 30px;
+  }
+
   .modal__input_type_description {
+    max-width: 238px;
+    font-size: 14px;
+    line-height: 16.94px;
+    margin: 0 22px 45px;
+  }
+
+  .modal__input_type_link {
     max-width: 238px;
     font-size: 14px;
     line-height: 16.94px;
