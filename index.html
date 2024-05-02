@@ -47,14 +47,14 @@
     </div>
 
     <div class="modal" id="preview">
-      <div class="preview__container">
+      <div class="modal__container_preview">
         <button
           type="button"
           class="modal__close-button"
           aria-label="Close preview button"
         ></button>
-        <img src="" alt="" class="preview__image" />
-        <p class="preview__title"></p>
+        <img src="" alt="" class="modal__image_preview" />
+        <p class="modal__title_preview"></p>
       </div>
     </div>
 
@@ -66,11 +66,11 @@
           aria-label="Close editor button"
         ></button>
         <h2 class="modal__heading">Edit profile</h2>
-        <form class="modal__form">
+        <form class="modal__form" id="profile-form">
           <input
             type="text"
             value="placeholder"
-            class="modal__input modal__input_type_title"
+            class="modal__input modal__input_type_name"
           />
           <input
             type="text"
@@ -89,28 +89,28 @@
     </div>
 
     <div class="modal" id="newcards">
-      <div class="newcards__container">
+      <div class="modal__container">
         <button
           type="button"
           class="modal__close-button"
           aria-label="Close new card button"
         ></button>
-        <h2 class="newcards__heading">New Place</h2>
-        <form class="newcards__form">
+        <h2 class="modal__heading">New Place</h2>
+        <form class="modal__form" id="newcard-form">
           <input
             type="text"
             placeholder="Title"
-            class="newcards__input newcards__input_type_title"
+            class="modal__input modal__input_type_title"
           />
           <input
             type="text"
             placeholder="Image URL"
-            class="newcards__input newcards__input_type_link"
+            class="modal__input modal__input_type_link"
           />
           <button
             type="submit"
-            class="newcards__save-button"
-            aria-label="Save changes button"
+            class="modal__save-button"
+            aria-label="Save new card button"
           >
             Save
           </button>
