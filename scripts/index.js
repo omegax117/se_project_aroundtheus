@@ -51,6 +51,23 @@ const modals = document.querySelectorAll(".modal");
 closePopUpBtns.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => closePopUp(popup));
+});
+
+//functions
+function closePopUp(popup) {
+  popup.classList.remove("modal_open");
+  window.removeEventListener("keydown", (e) => {
+    if (e.key == "Escape") {
+      closePopUp(popup);
+    }
+  });
+  window.removeEventListener("click", (e) => {
+    handleClickOverlay(e);
+  });
+}
+
+function openPopUp(popup) {
+  popup.classList.add("modal_open");
   window.addEventListener("keydown", (e) => {
     if (e.key == "Escape") {
       closePopUp(popup);
@@ -59,15 +76,6 @@ closePopUpBtns.forEach((button) => {
   window.addEventListener("click", (e) => {
     handleClickOverlay(e);
   });
-});
-
-//functions
-function closePopUp(popup) {
-  popup.classList.remove("modal_open");
-}
-
-function openPopUp(popup) {
-  popup.classList.add("modal_open");
 }
 
 function handleClickOverlay(event) {

@@ -91,7 +91,7 @@
 
 .modal__error {
   font: Inter, Arial, sans-serif;
-  size: 12px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 14.52px;
   color: #ff0000;
@@ -192,41 +192,42 @@
   .modal__container {
     max-width: 282px;
     min-height: 322px;
+    padding: 0 22px 0;
   }
 
   .modal__heading {
     max-width: 238px;
     font-size: 18px;
     line-height: 21.78px;
-    margin: 25px 22px 75px;
+    margin: 25px 0 75px;
   }
 
   .modal__input_type_title {
     max-width: 238px;
     font-size: 14px;
     line-height: 16.94px;
-    margin: 0 22px 30px;
+    margin: 0;
   }
 
   .modal__input_type_name {
     max-width: 238px;
     font-size: 14px;
     line-height: 16.94px;
-    margin: 0 22px 30px;
+    margin: 0;
   }
 
   .modal__input_type_description {
     max-width: 238px;
     font-size: 14px;
     line-height: 16.94px;
-    margin: 0 22px 45px;
+    margin: 30px 0 0;
   }
 
   .modal__input_type_link {
     max-width: 238px;
     font-size: 14px;
     line-height: 16.94px;
-    margin: 0 22px 45px;
+    margin: 45px 0 0;
   }
 
   .modal__save-button {
@@ -235,6 +236,10 @@
     font-family: Inter, Arial, sans-serif;
     max-width: 238px;
     height: 46px;
-    margin: 0 22px 25px;
+    margin: 45px 0 25px;
+  }
+
+  .modal__error {
+    max-width: 238px;
   }
 }
