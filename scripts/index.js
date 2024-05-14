@@ -47,9 +47,18 @@ const previewModal = document.querySelector("#preview");
 const previewImage = document.querySelector(".modal__image-preview");
 const previewTitle = document.querySelector(".modal__title-preview");
 const closePopUpBtns = document.querySelectorAll(".modal__close-button");
+const modals = document.querySelectorAll(".modal");
 closePopUpBtns.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => closePopUp(popup));
+  window.addEventListener("keydown", (e) => {
+    if (e.key == "Escape") {
+      closePopUp(popup);
+    }
+  });
+  window.addEventListener("click", (e) => {
+    handleClickOverlay(e);
+  });
 });
 
 //functions
@@ -59,6 +68,12 @@ function closePopUp(popup) {
 
 function openPopUp(popup) {
   popup.classList.add("modal_open");
+}
+
+function handleClickOverlay(event) {
+  if (Array.from(event.target.classList).includes("modal_open")) {
+    closePopUp(document.querySelector(".modal_open"));
+  }
 }
 
 function handleCardImageClick(event) {

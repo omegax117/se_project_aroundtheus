@@ -22,14 +22,20 @@
   transition: visibility 0s, opacity 0.6s linear;
 }
 
+.modal__label {
+  position: relative;
+}
+
 .modal__container {
   background-color: white;
   border-radius: 10px;
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 430px;
+  width: 430px;
   min-height: 330px;
+  padding: 0 35px 0;
+  box-sizing: border-box;
 }
 .modal__container-preview {
   background-color: transparent;
@@ -39,6 +45,7 @@
   flex-direction: column;
   max-width: 75vw;
   min-height: 75vh;
+  max-height: 90vh;
 }
 
 .modal__close-button {
@@ -62,6 +69,8 @@
 
 .modal__form {
   margin: 0;
+  position: relative;
+  display: block;
 }
 
 .modal__input {
@@ -78,6 +87,28 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 16.94px;
+}
+
+.modal__error {
+  font: Inter, Arial, sans-serif;
+  size: 12px;
+  font-weight: 400;
+  line-height: 14.52px;
+  color: #ff0000;
+  position: absolute;
+  transition: opacity 0.3s;
+  width: 358px;
+  max-width: 358px;
+  opacity: 0;
+  margin: 5px 0 0;
+}
+
+.modal__error_visible {
+  opacity: 1;
+}
+
+.modal__input_type_error {
+  border-color: #ff0000;
 }
 
 .modal__heading {
@@ -98,16 +129,8 @@
   margin: 10px auto 0 0;
 }
 
-.modal__input_type_name {
-  margin: 0 34px 0;
-}
-
 .modal__input_type_name:focus {
   outline: #2f80ed 2px solid;
-}
-
-.modal__input_type_title {
-  margin: 0 34px 0;
 }
 
 .modal__input_type_title:focus {
@@ -115,7 +138,7 @@
 }
 
 .modal__input_type_description {
-  margin: 28px 34px 0;
+  margin: 28px 0 0;
 }
 
 .modal__input_type_description:focus {
@@ -123,7 +146,7 @@
 }
 
 .modal__input_type_link {
-  margin: 28px 34px 0;
+  margin: 28px 0 0;
 }
 
 .modal__input_type_link:focus {
@@ -138,13 +161,20 @@
   max-width: 360px;
   width: 100%;
   height: 50.15px;
-  margin: 45px 34px 34px;
+  margin: 45px 0 0;
   padding: 0;
   border: none;
   border-radius: 2px;
   color: #fff;
   background-color: rgba(0, 0, 0, 1);
   transition: 0.6s ease-in-out;
+}
+
+.modal__save-button_disabled {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 1);
+  border: solid 1px;
 }
 
 .modal__button:hover {
