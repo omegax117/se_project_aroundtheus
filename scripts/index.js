@@ -56,31 +56,26 @@ closePopUpBtns.forEach((button) => {
 //functions
 function closePopUp(popup) {
   popup.classList.remove("modal_open");
-  window.removeEventListener("keydown", (e) => {
-    if (e.key == "Escape") {
-      closePopUp(popup);
-    }
-  });
-  window.removeEventListener("click", (e) => {
-    handleClickOverlay(e);
-  });
+  window.removeEventListener("keydown", handleEscKeyPress);
+  window.removeEventListener("click", handleClickOverlay);
 }
 
 function openPopUp(popup) {
   popup.classList.add("modal_open");
-  window.addEventListener("keydown", (e) => {
-    if (e.key == "Escape") {
-      closePopUp(popup);
-    }
-  });
-  window.addEventListener("click", (e) => {
-    handleClickOverlay(e);
-  });
+  window.addEventListener("keydown", handleEscKeyPress);
+  window.addEventListener("click", handleClickOverlay);
 }
 
 function handleClickOverlay(event) {
   if (Array.from(event.target.classList).includes("modal_open")) {
     closePopUp(event.target);
+  }
+}
+
+function handleEscKeyPress(event) {
+  if (event.key == "Escape") {
+    const open = document.querySelector(".modal_open");
+    closePopUp(open);
   }
 }
 
