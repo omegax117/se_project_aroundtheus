@@ -74,8 +74,8 @@ function handleClickOverlay(event) {
 
 function handleEscKeyPress(event) {
   if (event.key == "Escape") {
-    const open = document.querySelector(".modal_open");
-    closePopUp(open);
+    const openModal = document.querySelector(".modal_open");
+    closePopUp(openModal);
   }
 }
 
