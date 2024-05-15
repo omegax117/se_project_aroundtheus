@@ -80,19 +80,17 @@ function openPopUp(popup) {
 
 function handleClickOverlay(event) {
   if (Array.from(event.target.classList).includes("modal_open")) {
-    closePopUp(document.querySelector(".modal_open"));
+    closePopUp(event.target);
   }
 }
 
 function handleCardImageClick(event) {
-  if (event.target.classList.contains("card__image")) {
-    const preview = event.target;
-    const cardTitle = preview.closest(".card");
-    previewImage.src = preview.src;
-    previewImage.alt = preview.alt;
-    previewTitle.textContent = cardTitle.textContent;
-    openPopUp(previewModal);
-  }
+  const preview = event.target;
+  const cardTitle = preview.closest(".card");
+  previewImage.src = preview.src;
+  previewImage.alt = preview.alt;
+  previewTitle.textContent = cardTitle.textContent;
+  openPopUp(previewModal);
 }
 
 function getCardElement(cardData) {
