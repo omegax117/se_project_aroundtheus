@@ -1,3 +1,6 @@
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -24,6 +27,14 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__save-button",
+  inactiveButtonClass: "modal__save-button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
 
 //Elements
 const profileEditBtn = document.querySelector(".profile__edit-button");
@@ -88,29 +99,33 @@ function handleCardImageClick(event) {
   openPopUp(previewModal);
 }
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__description-text");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const deleteBtn = cardElement.querySelector(".card__delete-button");
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
-  deleteBtn.addEventListener("click", () => {
-    cardElement.remove();
-  });
-  cardImageEl.addEventListener("click", handleCardImageClick);
-  cardImageEl.src = cardData.link;
-  cardTitleEl.textContent = cardData.name;
-  cardImageEl.alt = cardData.name;
+// function getCardElement(cardData) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardImageEl = cardElement.querySelector(".card__image");
+//   const cardTitleEl = cardElement.querySelector(".card__description-text");
+//   const likeButton = cardElement.querySelector(".card__like-button");
+//   const deleteBtn = cardElement.querySelector(".card__delete-button");
+//   likeButton.addEventListener("click", () => {
+//     likeButton.classList.toggle("card__like-button_active");
+//   });
+//   deleteBtn.addEventListener("click", () => {
+//     cardElement.remove();
+//   });
+//   cardImageEl.addEventListener("click", handleCardImageClick);
+//   cardImageEl.src = cardData.link;
+//   cardTitleEl.textContent = cardData.name;
+//   cardImageEl.alt = cardData.name;
 
-  return cardElement;
-}
+//   return cardElement;
+// }
 
 function renderCard(cardData, cardListEl) {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+  const card = new Card(
+    cardData,
+    "#jscard-template",
+    handleCardImageClick
+  ).getView();
+  cardListEl.prepend(card);
 }
 
 // Event Listeners
@@ -142,3 +157,8 @@ addNewCardForm.addEventListener("submit", (event) => {
   renderCard({ name, link }, cardListEl);
   event.target.reset();
 });
+
+const editFormValidators = new FormValidator(config, editProfileForm);
+editFormValidators.enableValidation();
+const addFormValidators = new FormValidator(config, addNewCardForm);
+addFormValidators.enableValidation();

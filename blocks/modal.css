@@ -63,7 +63,7 @@
   margin: 0;
 }
 
-.modal__close:hover {
+.modal__close-button:hover {
   opacity: 60%;
 }
 
