@@ -132,6 +132,7 @@ function renderCard(cardData, cardListEl) {
 profileEditBtn.addEventListener("click", () => {
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
+  formValidators["profile-form"].resetValidation();
   openPopUp(profileEditModal);
 });
 
@@ -158,7 +159,22 @@ addNewCardForm.addEventListener("submit", (event) => {
   event.target.reset();
 });
 
-const editFormValidators = new FormValidator(config, editProfileForm);
-editFormValidators.enableValidation();
-const addFormValidators = new FormValidator(config, addNewCardForm);
-addFormValidators.enableValidation();
+const formValidators = {};
+
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement);
+    const formName = formElement.getAttribute("id");
+
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(config);
+
+// const editFormValidator = new FormValidator(config, editProfileForm);
+// editFormValidator.enableValidation();
+// const addFormValidator = new FormValidator(config, addNewCardForm);
+// addFormValidator.enableValidation();
