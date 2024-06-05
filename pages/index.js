@@ -137,7 +137,6 @@ profileEditBtn.addEventListener("click", () => {
 });
 
 cardAddBtn.addEventListener("click", () => {
-  formValidators["newcard-form"].resetValidation();
   openPopUp(newCardModal);
 });
 

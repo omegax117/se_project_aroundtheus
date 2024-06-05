@@ -37,12 +37,12 @@ class FormValidator {
 
   _disableButton(button) {
     button.classList.add(this._inactiveButtonClass);
-    button.disable = true;
+    button.disabled = true;
   }
 
   _enableButton(button) {
     button.classList.remove(this._inactiveButtonClass);
-    button.disable = false;
+    button.disabled = false;
   }
 
   resetValidation() {
