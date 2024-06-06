@@ -37,6 +37,7 @@ const config = {
 };
 
 //Elements
+const formSubmitButton = document.querySelector("#form_submit");
 const profileEditBtn = document.querySelector(".profile__edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const editProfileForm = document.querySelector("#profile-form");
@@ -137,7 +138,6 @@ profileEditBtn.addEventListener("click", () => {
 });
 
 cardAddBtn.addEventListener("click", () => {
-  formValidators["newcard-form"].resetValidation();
   openPopUp(newCardModal);
 });
 
@@ -158,6 +158,7 @@ addNewCardForm.addEventListener("submit", (event) => {
   const link = newCardLinkInput.value;
   renderCard({ name, link }, cardListEl);
   event.target.reset();
+  formValidators["newcard-form"].disableButton();
 });
 
 const formValidators = {};
@@ -167,7 +168,6 @@ const enableValidation = (config) => {
   formList.forEach((formElement) => {
     const validator = new FormValidator(config, formElement);
     const formName = formElement.getAttribute("id");
-
     formValidators[formName] = validator;
     validator.enableValidation();
   });
