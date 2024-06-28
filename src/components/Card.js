@@ -25,9 +25,7 @@ export default class Card {
   }
 
   _handleLikeIcon() {
-    this._cardElement
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_active");
+    this._likeButton.classList.toggle("card__like-button_active");
   }
 
   _handleDeleteCard() {
@@ -46,6 +44,7 @@ export default class Card {
   getView() {
     //get card view
     this._cardElement = this._getTemplate();
+    this._likeButton = this._cardElement.querySelector(".card__like-button");
     //set event listeners
     this._setEventListeners();
     this._cardElement.querySelector(".card__image").src = this._link;

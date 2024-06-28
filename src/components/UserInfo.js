@@ -4,7 +4,7 @@ export default class UserInfo {
     this._displayedDescription = profileDescription;
   }
 
-  getUserInfo(profileName, profileDescription) {
+  getUserInfo() {
     return {
       name: this._displayedName.textContent,
       description: this._displayedDescription.textContent,

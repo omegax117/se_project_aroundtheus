@@ -36,38 +36,32 @@ newCardPopup.setEventListeners();
 function handleCardImageClick(name, link) {
   imagePopup.open(name, link);
 }
-const CardSection = new Section(
+const cardSection = new Section(
   {
     items: initialCards,
     renderer: (cardData) => {
-      const cardEl = new Card(
-        cardData,
-        selectors.cardTemplate,
-        handleCardImageClick
-      );
-      CardSection.addItem(cardEl.getView());
+      createCard(cardData);
     },
   },
   selectors.cardSection
 );
 const userInfo = new UserInfo(profileName, profileDescription);
-CardSection.renderItems();
+cardSection.renderItems();
 
 //render newcards
-function renderCard(cardData) {
+function createCard(cardData) {
   const card = new Card(
     cardData,
     "#jscard-template",
     handleCardImageClick
   ).getView();
-  CardSection.addItem(card);
+  cardSection.addItem(card);
 }
 
 // Event Listeners
 profileEditBtn.addEventListener("click", () => {
   const { name, description } = userInfo.getUserInfo();
-  profileNameInput.value = name;
-  profileDescriptionInput.value = description;
+  profilePopup.setInputValues({ name, description });
   formValidators["profile-form"].resetValidation();
   profilePopup.open();
 });
@@ -82,10 +76,8 @@ function editProfileSubmit(userData) {
   profilePopup.close(profileEditModal);
 }
 
-function addNewCardSubmit() {
-  const name = newCardNameInput.value;
-  const link = newCardLinkInput.value;
-  renderCard({ name, link });
+function addNewCardSubmit(data) {
+  createCard({ name: data.name, link: data.link });
   formValidators["newcard-form"].disableButton();
 }
 
