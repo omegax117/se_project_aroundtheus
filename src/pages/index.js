@@ -39,9 +39,7 @@ function handleCardImageClick(name, link) {
 const cardSection = new Section(
   {
     items: initialCards,
-    renderer: (cardData) => {
-      createCard(cardData);
-    },
+    renderer: createCard,
   },
   selectors.cardSection
 );
@@ -61,23 +59,23 @@ function createCard(cardData) {
 // Event Listeners
 profileEditBtn.addEventListener("click", () => {
   const { name, description } = userInfo.getUserInfo();
-  profilePopup.setInputValues({ name, description });
+  profilePopup.setInputValues(name, description);
   formValidators["profile-form"].resetValidation();
   profilePopup.open();
 });
 
 cardAddBtn.addEventListener("click", () => {
-  newCardPopup.open(newCardModal);
+  newCardPopup.open();
 });
 
 //Handler
 function editProfileSubmit(userData) {
   userInfo.setUserInfo(userData);
-  profilePopup.close(profileEditModal);
+  profilePopup.close();
 }
 
 function addNewCardSubmit(data) {
-  createCard({ name: data.name, link: data.link });
+  createCard(data);
   formValidators["newcard-form"].disableButton();
 }
 

@@ -23,12 +23,6 @@ export default class Popup {
     }
   }
 
-  _handleClickOverlay(event) {
-    if (event.target.classList.contains("modal_open")) {
-      this.close();
-    }
-  }
-
   setEventListeners() {
     this._popupElement.addEventListener("mousedown", (event) => {
       if (
