@@ -8,15 +8,9 @@ import {
   initialCards,
   config,
   profileEditBtn,
-  profileEditModal,
   profileName,
   profileDescription,
-  profileNameInput,
-  profileDescriptionInput,
   cardAddBtn,
-  newCardModal,
-  newCardNameInput,
-  newCardLinkInput,
   formValidators,
   selectors,
 } from "../utils/constants.js";
@@ -58,8 +52,8 @@ function createCard(cardData) {
 
 // Event Listeners
 profileEditBtn.addEventListener("click", () => {
-  const { name, description } = userInfo.getUserInfo();
-  profilePopup.setInputValues(name, description);
+  const info = userInfo.getUserInfo();
+  profilePopup.setInputValues(info);
   formValidators["profile-form"].resetValidation();
   profilePopup.open();
 });
