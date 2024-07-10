@@ -28,8 +28,8 @@ const profilePopup = new PopupWithForm(
 profilePopup.setEventListeners();
 const newCardPopup = new PopupWithForm("#newcards", addNewCardSubmit);
 newCardPopup.setEventListeners();
-const EditPfp = new PopupWithForm("#pfpEdit", editPfpSubmit);
-EditPfp.setEventListeners();
+const editPfp = new PopupWithForm("#pfpEdit", editPfpSubmit);
+editPfp.setEventListeners();
 const confirmPopup = new PopupWithConfirm("#confirm");
 confirmPopup.setEventListeners();
 const api = new Api({
@@ -39,6 +39,7 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
+const userInfo = new UserInfo(profileName, profileDescription, pfp);
 
 //initalization
 function createCard(cardData) {
@@ -52,33 +53,20 @@ function createCard(cardData) {
   const cardElement = card.getView();
   cardSection.addItem(cardElement);
 }
-
+//render newcards
 function cardListData() {
   return api
     .getInitialCards()
-    .then((res) => {
-      console.log("Fetched Cards:", res);
-      return res.map((card) => ({
-        name: card.name,
-        link: card.link,
-        _id: card._id,
-        isLiked: card.isLiked,
-      }));
+    .then((data) => {
+      const cardElement = data.map((cardData) => createCard(cardData));
+      cardSection.renderItems(cardElement);
     })
     .catch((err) => {
       console.error(err);
-      return [];
     });
 }
 
-cardListData()
-  .then((data) => {
-    const cardElement = data.map((cardData) => createCard(cardData));
-    cardSection.renderItems(cardElement);
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+cardListData();
 
 const cardSection = new Section(
   {
@@ -87,21 +75,16 @@ const cardSection = new Section(
   },
   selectors.cardSection
 );
-const userInfo = new UserInfo(profileName, profileDescription, pfp);
-cardSection.renderItems();
 
 api
   .getUserData()
   .then((res) => {
-    console.log(res);
     userInfo.setUserInfo({ name: res.name, description: res.about });
     userInfo.setUserPfp({ avatar: res.avatar });
   })
   .catch((err) => {
     console.error(err);
   });
-
-//render newcards
 
 // Event Listeners
 profileEditBtn.addEventListener("click", () => {
@@ -116,14 +99,14 @@ cardAddBtn.addEventListener("click", () => {
 });
 
 pfp.addEventListener("click", () => {
-  EditPfp.open();
+  editPfp.open();
 });
 
 //Handler
 function handleDeleteCard(card) {
   confirmPopup.open();
   confirmPopup.handleConfirm(() => {
-    confirmPopup.showLoading(true);
+    confirmPopup.renderLoading(true);
     api
       .deleteCard(card.getCardId())
       .then(() => {
@@ -134,58 +117,50 @@ function handleDeleteCard(card) {
         console.error(err);
       })
       .finally(() => {
-        confirmPopup.showLoading(false);
+        confirmPopup.renderLoading(false);
       });
   });
 }
 
-function editProfileSubmit(userData) {
-  profilePopup.showLoading(true);
-  api
-    .editUserData({
-      name: userData.name,
-      description: userData.description,
+//submit function
+function handleSubmit(request, popupInstance, loadingText = "Saving...") {
+  popupInstance.renderLoading(true, loadingText);
+  request()
+    .then(() => {
+      popupInstance.close();
     })
-    .catch((err) => {
-      console.error(err);
-    })
+    .catch(console.error)
     .finally(() => {
-      profilePopup.showLoading(false);
+      popupInstance.renderLoading(false);
     });
-  userInfo.setUserInfo(userData);
-  profilePopup.close();
+}
+
+function editProfileSubmit(userData) {
+  function makeRequest() {
+    return api.editUserData(userData).then((userData) => {
+      userInfo.modifyUserInfo(userData);
+    });
+  }
+  handleSubmit(makeRequest, profilePopup);
 }
 
 function editPfpSubmit(userData) {
-  EditPfp.showLoading(true);
-  api
-    .editPfp(userData)
-    .then((res) => {
-      userInfo.setUserPfp({ avatar: res.avatar });
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally(() => {
-      EditPfp.showLoading(false);
+  function makeRequest() {
+    return api.editPfp(userData).then((userData) => {
+      userInfo.setUserPfp({ avatar: userData.avatar });
     });
-  formValidators["pfp-editor"].disableButton();
+  }
+  handleSubmit(makeRequest, editPfp);
 }
 
 function addNewCardSubmit(data) {
-  newCardPopup.showLoading(true);
-  api
-    .addNewCard(data)
-    .then((res) => {
-      const cardElement = createCard(res);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
-    .finally(() => {
-      newCardPopup.showLoading(false);
+  function makeRequest() {
+    return api.addNewCard(data).then((data) => {
+      createCard(data);
+      formValidators["newcard-form"].disableButton();
     });
-  formValidators["newcard-form"].disableButton();
+  }
+  handleSubmit(makeRequest, newCardPopup);
 }
 
 function handleCardImageClick(name, link) {

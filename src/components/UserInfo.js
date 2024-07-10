@@ -17,6 +17,11 @@ export default class UserInfo {
     this._displayedDescription.textContent = userData.description;
   }
 
+  modifyUserInfo(userData) {
+    this._displayedName.textContent = userData.name;
+    this._displayedDescription.textContent = userData.about;
+  }
+
   setUserPfp(userData) {
     this._pfpElement.src = userData.avatar;
   }
