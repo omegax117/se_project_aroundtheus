@@ -21,6 +21,7 @@
             class="profile__image"
             src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="profile avatar"
+            id="profilePicture"
           />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
@@ -143,6 +144,57 @@
             aria-label="Save new card button"
           >
             Save
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="pfpEdit">
+      <div class="modal__container modal__container-pfp">
+        <button
+          type="button"
+          class="modal__close-button"
+          aria-label="Close profile image editor"
+        ></button>
+        <p class="modal__heading">Change profile picture</p>
+        <form class="modal__form" id="pfp-editor">
+          <label class="modal__label">
+            <input
+              type="url"
+              placeholder="Image URL"
+              class="modal__input modal__input_type_link modal__input_type_pfp"
+              required
+              id="pfp-link"
+              name="link"
+            />
+            <span class="modal__error" id="pfp-link-error"></span>
+          </label>
+          <button
+            type="submit"
+            class="modal__save-button"
+            aria-label="Save new profile picture"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="confirm">
+      <div class="modal__container modal__container-del">
+        <button
+          type="button"
+          class="modal__close-button"
+          aria-label="Close delete window"
+        ></button>
+        <p class="modal__heading">Are you sure?</p>
+        <form class="modal__form" id="delete-confirm">
+          <button
+            type="submit"
+            class="modal__save-button modal__save-button_del"
+            aria-label="Save new profile picture"
+          >
+            Yes
           </button>
         </form>
       </div>

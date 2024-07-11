@@ -10,7 +10,17 @@
   object-fit: cover;
   background-position: center;
   margin: 0 24px 0 0;
+  transition: 0.6s linear;
+  position: relative;
 }
+.profile__image:hover {
+  background: url(../images/edit.svg) center no-repeat cover;
+  visibility: visible;
+  background-color: #fff;
+  opacity: 40%;
+  cursor: pointer;
+}
+
 .profile__info {
   display: grid;
   grid-template-areas: "title button" "description description";

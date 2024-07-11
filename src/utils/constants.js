@@ -24,7 +24,6 @@ export const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
-
 export const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
@@ -59,4 +58,10 @@ export const formValidators = {};
 export const selectors = {
   cardSection: ".cards__list",
   cardTemplate: "#jscard-template",
+};
+export const pfp = document.querySelector("#profilePicture");
+export const cardData = {
+  name: "Card Name",
+  link: "https://example.com/image.jpg",
+  id: "card123",
 };
