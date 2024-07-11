@@ -58,8 +58,7 @@ function cardListData() {
   return api
     .getInitialCards()
     .then((data) => {
-      const cardElement = data.map((cardData) => createCard(cardData));
-      cardSection.renderItems(cardElement);
+      cardSection.renderItems(data);
     })
     .catch((err) => {
       console.error(err);
@@ -161,6 +160,7 @@ function addNewCardSubmit(data) {
     });
   }
   handleSubmit(makeRequest, newCardPopup);
+  newCardPopup.reset();
 }
 
 function handleCardImageClick(name, link) {
